@@ -1,6 +1,6 @@
-//----------------NOYON CPP TEMPLATE---------------\
+//----------------NOYON CPP TEMPLATE---------------//
 
-#include<bits/stdc++.h> 
+#include <bits/stdc++.h>
 #define ff first
 #define ss second
 using namespace std;
@@ -22,15 +22,15 @@ typedef vector<bool> vb;
 #define PI acos(-1)
 #define endl "\n"
 
-#define v2d(name,n,m,val) vector<vector<int>>(name)((n),vector<int>((m),(val)))
-#define Unique(a) (a).erase(unique(all(a)),(a).end())
+#define v2d(name, n, m, val) vector<vector<int>>(name)((n), vector<int>((m), (val)))
+#define Unique(a) (a).erase(unique(all(a)), (a).end())
 
 #define pb push_back
 #define ppb pop_back
 #define lb lower_bound
 #define ub upper_bound
-#define loop(i,x,n) for(ll i=x; i<=n;i++)
-#define rloop(i,x,n) for(ll i=n; i>=x;i--)
+#define loop(i, x, n) for (ll i = x; i <= n; i++)
+#define rloop(i, x, n) for (ll i = n; i >= x; i--)
 
 #define each(v) for (auto &it : v)
 // #define each(v) for (auto it=v.begin(); it!= v.end();it++)
@@ -40,44 +40,46 @@ typedef vector<bool> vb;
 #define MAX LLONG_MAX
 #define MIN LLONG_MIN
 #define mp make_pair
-#define MEM(a,x) memset(a,x,sizeof(a))
+#define MEM(a, x) memset(a, x, sizeof(a))
 
 // Debugging Functions starts
 #ifndef ONLINE_JUDGE
-#include "Debug2.h"
-#include "Debug.h"
+#include "./template/Debug2.h"
+#include "./template/Debug.h"
 #else
-	#define debug(...)
-	#define dbg(x...)
+#define debug(...)
+#define dbg(x...)
 #endif
 
-void file(){
-	#ifndef ONLINE_JUDGE
-		freopen("input.txt", "r", stdin);
-		freopen("output.txt", "w", stdout);
-		freopen("error.txt", "w", stderr);
-	#endif
+void file()
+{
+#ifndef ONLINE_JUDGE
+     freopen("./template/input.txt", "r", stdin);
+     freopen("./template/output.txt", "w", stdout);
+     freopen("./template/error.txt", "w", stderr);
+#endif
 }
 
-void speed(){
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-	cout.tie(0);
+void speed()
+{
+     ios_base::sync_with_stdio(false);
+     cin.tie(0);
+     cout.tie(0);
 }
-
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 clock_t startTime;
-double getCurrentTime() {
-	return (double)(clock() - startTime) / CLOCKS_PER_SEC;
+double getCurrentTime()
+{
+     return (double)(clock() - startTime) / CLOCKS_PER_SEC;
 }
 
-
-
-
-void iff(bool t){
-	if(t) cout<<"YES\n";
-	else cout<<"NO\n";
+void iff(bool t)
+{
+     if (t)
+          cout << "YES\n";
+     else
+          cout << "NO\n";
 }
 // bool checkPrime(ll n){
 // 	if(n==2) return true;
@@ -118,98 +120,145 @@ void iff(bool t){
 // int limit = 1e6;
 // vector<ll> primeFactor[1000001];
 // vector<bool> isPrime(1000001,true);
-// void sieve() 
-// { 
+// void sieve()
+// {
 // 	isPrime[0] = isPrime[1] = false;
-//     for (int p = 2; p * p <= limit; p++) { 
-//         if (isPrime[p] == true) { 
+//     for (int p = 2; p * p <= limit; p++) {
+//         if (isPrime[p] == true) {
 //         	primeFactor[p].pb(p);
 //             for (int i = p * 2; i <= limit; i += p) {
 //         		primeFactor[i].pb(p);
-//                 isPrime[i] = false; 
+//                 isPrime[i] = false;
 //             }
-//         } 
-//     } 
-// } 
+//         }
+//     }
+// }
 
-
-bool pairSort(pair<ll,ll> &a, pair<ll,ll> &b){
-	if(a.ss==b.ss) 
-		return (a.ff > b.ff);
-	return (a.ss < b.ss);
+bool pairSort(pair<ll, ll> &a, pair<ll, ll> &b)
+{
+     if (a.ss == b.ss)
+          return (a.ff > b.ff);
+     return (a.ss < b.ss);
 }
 
-bool exist(ll x, ll y, ll m, ll n){
-	if(x<0) return false;
-	if(y<0) return false;
-	if(x>=n) return false;
-	if(y>=m) return false;
-	return true;
+bool exist(ll x, ll y, ll m, ll n)
+{
+     if (x < 0)
+          return false;
+     if (y < 0)
+          return false;
+     if (x >= n)
+          return false;
+     if (y >= m)
+          return false;
+     return true;
 }
 
-ll get(ll a, ll b, ll m, ll n, string s[]){
-	ll c = 1;
-	vpll v = {{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
+ll get(ll a, ll b, ll m, ll n, string s[])
+{
+     ll c = 1;
+     vpll v = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
 
-	loop(i,0,7){
-		ll x= a + v[i].ff;
-		ll y= b + v[i].ss;
-		if(exist(x,y,m,n)) if(s[x][y]=='0') c = 2;
-	}
-	return c;
-}\
-//--------------------------###--------------------------------//
-//solution here
+     loop(i, 0, 7)
+     {
+          ll x = a + v[i].ff;
+          ll y = b + v[i].ss;
+          if (exist(x, y, m, n))
+               if (s[x][y] == '0')
+                    c = 2;
+     }
+     return c;
+}
 
-
+ll n, m;
+string graph[15];
 bool visited[100005];
 set<ll> a, b;
-void dfs(ll node, ll cur, vl graphs[]){
-	visited[node] = true;
+ll dfs(ll curInd, vl inserted)
+{
+     if (curInd == m)
+          return inserted.size();
 
-	for(auto it: graphs[node]){
-		if(!visited[it]){
-			if(cur==1){
-				b.insert(it);
-			}
-			else{	
-				a.insert(it);
-			}
-			dfs(it, cur^1, graphs);
-		}
+     ll ans = MAX;
+     bool flag = false;
+     for (auto it : inserted)
+     {
+          if (graph[it][curInd] == 'o')
+          {
+               flag = true;
+               ans = min(ans, dfs(curInd + 1, inserted));
+          }
+     }
+     if (!flag)
+          for (int i = 0; i < n; i++)
+          {
+               if (graph[i][curInd] == 'o')
+               {
+                    inserted.pb(i);
+                    ans = min(ans, dfs(curInd + 1, inserted));
+                    inserted.pop_back();
+               }
+          }
+     return ans;
+}
+
+//--------------------------###--------------------------------//
+// solution here
+
+vl fact(260001);
+void facto()
+{
+     ll mod = 998244353;
+     ll sz = 260001;
+     fact[0] = 1;
+     for (ll i = 1; i < sz; i++)
+     {
+          fact[i] = (fact[i - 1] * i) % mod;
+     }
+}
+void solve(int test)
+{
+     // dbg(test);
+     string startTestCase = "-----------Test: " + to_string(test) + "-------------";
+     string loopLine = "---------------------";
+     string endTestCase = "-------------------------------------------\n\n\n";
+     dbg(startTestCase);
+     //-------------------------------------------------------
+
+     ll n;
+     cin >> n;
+     vl v(n);
+     loop(i, 0, n - 1) cin >> v[i];
+     dbg(v);
+	
+
+	ll ans = MAX;
+     loop(i,1,n-1){
+		ll mx = max(v[i],v[i-1]);
+		ans = min(ans,mx);
 	}
+	cout<<ans-1<<endl;
+     //------------ -------------------------
+     dbg(endTestCase);
+}
+int main()
+{
+     speed();
+     startTime = clock();
+     file();
+     facto();
+     // dbg(fact);
+     // sieve();
+     ll t = 1, T = 1;
+     cin >> T;
+     while (t <= T)
+     {
+          // cout<<"Case #"<<t<<": ";
+          solve(t);
+          t++;
+     }
+
+     dbg(getCurrentTime()) return 0;
 }
 
-
-void solve(int test){
-	// dbg(test);
-	string startTestCase = "-----------Test: "+to_string(test)+"-------------";
-	string loopLine = "---------------------";
-	string endTestCase = "-------------------------------------------\n\n\n";
-	dbg(startTestCase);
-	//-------------------------------------------------------
-	
-	
-	//-------------------------------------
-	dbg(endTestCase);
- }
-int main(){
-	speed(); 
-	startTime = clock();
-
-	 file();
-	
-	// sieve();
-	// factorial();	
-	ll t=1, T=1;
-	cin>>T;
-
-	while(t<=T){
-		// cout<<"Case #"<<t<<": ";
-		solve(t);
-		t++;
-	} 
-
-	dbg(getCurrentTime())
-	return 0;
-}
+//
