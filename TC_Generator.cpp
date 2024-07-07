@@ -37,8 +37,8 @@ typedef vector<bool> vb;
 
 // Debugging Functions starts
 #ifndef ONLINE_JUDGE
-#include "./template/Debug2.h"
-#include "./template/Debug.h"
+#include "./files/Debug2.h"
+#include "./files/Debug.h"
 #else
 #define debug(...)
 #define dbg(x...)
@@ -54,9 +54,9 @@ void speed()
 void file()
 {
 #ifndef ONLINE_JUDGE
-	freopen("./template/TC.txt", "r", stdin);
-	freopen("./template/TC_Output.txt", "w", stdout);
-	freopen("./template/error.txt", "w", stderr);
+	freopen("./files/TC.txt", "r", stdin);
+	freopen("./files/TC_Output.txt", "w", stdout);
+	freopen("./files/error.txt", "w", stderr);
 #endif
 }
 

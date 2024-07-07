@@ -44,8 +44,8 @@ typedef vector<bool> vb;
 
 // Debugging Functions starts
 #ifndef ONLINE_JUDGE
-#include "./template/Debug2.h"
-#include "./template/Debug.h"
+#include "./files/Debug2.h"
+#include "./files/Debug.h"
 #else
 #define debug(...)
 #define dbg(x...)
@@ -54,9 +54,9 @@ typedef vector<bool> vb;
 void file()
 {
 #ifndef ONLINE_JUDGE
-     freopen("./template/input.txt", "r", stdin);
-     freopen("./template/output.txt", "w", stdout);
-     freopen("./template/error.txt", "w", stderr);
+     freopen("./files/input.txt", "r", stdin);
+     freopen("./files/output.txt", "w", stdout);
+     freopen("./files/error.txt", "w", stderr);
 #endif
 }
 
@@ -230,14 +230,14 @@ void solve(int test)
      vl v(n);
      loop(i, 0, n - 1) cin >> v[i];
      dbg(v);
-	
 
-	ll ans = MAX;
-     loop(i,1,n-1){
-		ll mx = max(v[i],v[i-1]);
-		ans = min(ans,mx);
-	}
-	cout<<ans-1<<endl;
+     ll ans = MAX;
+     loop(i, 1, n - 1)
+     {
+          ll mx = max(v[i], v[i - 1]);
+          ans = min(ans, mx);
+     }
+     cout << ans - 1 << endl;
      //------------ -------------------------
      dbg(endTestCase);
 }
