@@ -1,0 +1,8 @@
+# Compile the C++ files
+g++ -o generator generator.cpp
+g++ -o correctSolution correctSolution.cpp
+g++ -o mySolution mySolution.cpp
+chmod +x stressTesting.sh
+# Use user input or default (20)
+numTests=${1:-20}
+./stressTesting.sh mySolution correctSolution generator $numTests
