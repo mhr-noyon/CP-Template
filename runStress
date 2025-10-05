@@ -1,0 +1,7 @@
+# Compile the C++ files
+g++ -o generator generator.cpp
+g++ -o correctSolution correctSolution.cpp
+g++ -o mySolution mySolution.cpp
+chmod +x stressTesting.sh
+
+./stressTesting.sh mySolution correctSolution generator
