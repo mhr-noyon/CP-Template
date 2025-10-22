@@ -1,4 +1,4 @@
-for ((testNum=0; testNum < $4; testNum++)) 
+for ((testNum=0; ; testNum++)) 
 do 
     ./$3 > input 
     ./$2 < input > outSlow 
@@ -11,9 +11,24 @@ do
         cat input 
         echo "Wrong Output:"
         cat outWrong 
+        echo ""
         echo "Correct Output:"
         cat outSlow 
+        echo ""
         exit 1
+    else
+        echo "Test: #$testNum"
     fi 
 done 
-echo "✅ Passed $4 tests"
+
+
+
+#Compile the files first:
+      #g++ -o optimized optimized.cpp
+      #g++ -o bruteForce bruteForce.cpp
+      #g++ -o testGenerator testGenerator.cpp
+
+#Run the stress test: ./stressTesting.sh optimized bruteForce testGenerator numTests
+
+#here numTests can be declared using command : 100
+
