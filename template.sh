@@ -35,6 +35,9 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     
+    cout << fixed << setprecision(6);
+    cerr << fixed << setprecision(6);
+    
     int _t = 1;
     cin >> _t;
     for (int i = 1; i <= _t; i++)
