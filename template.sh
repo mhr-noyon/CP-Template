@@ -1,9 +1,8 @@
 #!/bin/bash
-# Usage command: ./template.sh fileName
 
 # check if a filename was provided
 if [ -z "$1" ]; then
-    echo "Usage: ./temp.sh <fileName>"
+    echo "Usage: ./template.sh <fileName>"
     exit 1
 fi
 
@@ -24,13 +23,15 @@ using namespace std;
 #define endl "\\n"
 #define pll pair<ll, ll>
 #define Graph vector<vector<ll>>
+#define inf 1e18
+#define mod 1000000007
 
 void solve()
 {
      
 }
 
-int main()
+signed main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -43,7 +44,7 @@ int main()
     for (int i = 1; i <= _t; i++)
     {
         // cout<<"Case #" << i << ": ";
-        // cerr<<"\n\nCase #" << i << ": ";
+        // cerr<<"\n\n------------------------Case #" << i << ": \n";
         solve();
     }
     return 0;
