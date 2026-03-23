@@ -3,14 +3,17 @@
 # Compile the C++ files
 g++ -o generator generator.cpp
 # g++ -o generator treeGen.cpp
+
 g++ -o correctSolution correctSolution.cpp
-g++ -o F F.cpp
+# g++ -o multiSolutionChecker multiSolutionChecker.cpp
+
+g++ -o mySolution mySolution.cpp
 
 # Make sure the stress testing script is executable
 chmod +x stressTesting.sh
+chmod +x stressTestingMultiSolution.sh
 
-# Use user input or fallback to default (20)
-numTests=${1:-20}
 
 # Run the stress test
-./stressTesting.sh F correctSolution generator $numTests
+./stressTesting.sh mySolution correctSolution generator 
+# ./stressTestingMultiSolution.sh mySolution multiSolutionChecker generator 
