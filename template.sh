@@ -18,6 +18,14 @@ cat <<EOF > "$file"
 */
 
 #include <bits/stdc++.h>
+
+#ifdef LOCAL
+#include "debug.h"
+#else
+#define dbg(...)
+#define adbg(...)
+#endif
+
 using namespace std;
 #define ll long long
 #define ld long double

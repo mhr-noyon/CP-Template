@@ -1,1 +1,30 @@
-g++ $1.cpp && ./a.out <../input.txt >../output.txt 2>../error.txt
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Usage: ./run <filename> [t]"
+    exit 1
+fi
+
+FILE="$1"
+
+FLAGS=(
+    -std=c++20
+    -O2
+    -pipe
+    -Wall
+    -Wextra
+    -Wshadow
+    -Wconversion
+    -Wno-sign-conversion
+)
+
+if [ "$2" = "t" ]; then
+    g++ "${FLAGS[@]}" -DLOCAL -DDEBUG -o "$FILE" "$FILE.cpp"
+
+    if [ $? -eq 0 ]; then
+        echo "== Running [Give Input] =="
+        ./"$FILE"
+    fi
+else
+    g++ "${FLAGS[@]}" "$FILE.cpp" && ./a.exe < input.txt > output.txt 2> error.txt
+fi

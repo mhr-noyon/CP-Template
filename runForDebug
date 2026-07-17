@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "Usage: ./runD.sh <filename>"
+    exit 1
+fi
+
+g++ \
+-std=c++20 \
+-O2 \
+-pipe \
+-Wall \
+-Wextra \
+-Wshadow \
+-Wconversion \
+-Wno-sign-conversion \
+-DLOCAL \
+-DDEBUG \
+-o "$1" \
+"$1.cpp"
+
+if [ $? -eq 0 ]; then
+    echo "========== Running =========="
+    ./"$1"
+fi
