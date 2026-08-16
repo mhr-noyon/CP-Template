@@ -1,4 +1,11 @@
 using namespace std;
+
+struct NodeDebug {
+    int val;
+    NodeDebug *left;
+    NodeDebug *right;
+};
+
 void __print(int x) { cerr << x; }
 void __print(long x) { cerr << x; }
 void __print(long long x) { cerr << x; }
@@ -11,7 +18,20 @@ void __print(long double x) { cerr << x; }
 void __print(char x) { cerr << '\'' << x << '\''; }
 void __print(const char *x) { cerr << '\"' << x << '\"'; }
 void __print(const string &x) { cerr << '\"' << x << '\"'; }
-void __print(bool x) { cerr << (x ? "true" : "false"); }
+void __print(bool x) { cerr << (x ? "true" : "false"); }template <typename T, typename U, typename V>
+void __print(tuple<T, U, V> x) {
+    cerr << "(";
+    cerr << get<0>(x) << ", ";
+    cerr << get<1>(x) << ", ";
+    cerr << (get<2>(x) ? "true" : "false");
+    cerr << ")";
+}
+void __print(const NodeDebug &x) {
+    cerr << "{";
+    cerr << "val: ";
+    __print(x.val);
+    cerr << "}";
+}
 
 template <typename T, typename V>
 void __print(const T *x, const V sz)
@@ -42,15 +62,6 @@ void __print(const pair<T, V> &x)
     cerr << ", ";
     __print(x.second);
     cerr << '}';
-}
-void _print() { cerr << "]\n"; }
-template <typename T, typename... V>
-void _print(T t, V... v)
-{
-    __print(t);
-    if (sizeof...(v))
-        cerr << ", ";
-    _print(v...);
 }
 
 template <class T>
@@ -92,7 +103,18 @@ void __print(priority_queue<T> pq){
     }
     cerr<<"}";
 }
-
+template<class T>
+void __print(priority_queue<T, vector<T>, greater<T>> pq){
+    cerr<<"{";
+    bool f=false;
+    while(!pq.empty()){
+        if(f) cerr<<", ";
+        f=true;
+        __print(pq.top());
+        pq.pop();
+    }
+    cerr<<"}";
+}
 template<class... Ts>
 void __print(const tuple<Ts...>& t){
     cerr<<"(";
@@ -119,6 +141,16 @@ void __print(__int128 x){
     }
     reverse(s.begin(),s.end());
     cerr<<s;
+}
+
+void _print() { cerr << "]\n"; }
+template <typename T, typename... V>
+void _print(T t, V... v)
+{
+    __print(t);
+    if (sizeof...(v))
+        cerr << ", ";
+    _print(v...);
 }
 
 #ifdef DEBUG
