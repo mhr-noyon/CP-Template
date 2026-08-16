@@ -39,16 +39,15 @@ using namespace std;
 #define PIE acos(-1)
 #define vi vector<int>
 #define vl vector<ll>
+#define pb push_back
+#define ppb pop_back
 #define vpll vector<pll>
 #define vpii vector<pii>
-#define fori(n) for(int i=0; i<n; i++)
-#define fori1(n) for(int i=1; i<=n; i++)
-#define forj(n) for(int j=0; j<n; j++)
-#define forj1(n) for(int j=1; j<=n; j++)
-#define rfori(n) for(int i=n-1; i>=0; i--)
-#define rfori1(n) for(int i=n; i>=1; i--)
-#define rforj(n) for(int j=n-1; j>=0; j--) 
-#define rforj1(n) for(int j=n; j>=1; j--)
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define per(i, n) for (int i = (n) - 1; i >= 0; --i)
+#define rep1(i, n) for (int i = 1; i <= (n); ++i)
+#define per1(i, n) for (int i = (n); i >= 1; --i)
+void iff(bool t){ if(t) cout<<"YES\n"; else cout<<"NO\n";}
 
 void solve()
 {
@@ -67,6 +66,7 @@ signed main()
     cin >> _t;
     for (int i = 1; i <= _t; i++)
     {
+        dbg("--------- Case ", i);
         // cout<<"Case #" << i << ": ";
         // cerr<<"\n\n------------------------Case #" << i << ": \n";
         solve();
