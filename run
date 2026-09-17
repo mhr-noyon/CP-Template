@@ -20,6 +20,12 @@ FLAGS=(
 
 if [ "$2" = "t" ]; then
     g++ "${FLAGS[@]}" -DLOCAL -DDEBUG -o "$FILE" "$FILE.cpp"
+    if [ $? -eq 0 ]; then
+        echo "== Running [Input, Output taken from file] =="
+        ./"$FILE"  < input.txt > output.txt
+    fi
+elif [ "$2" = "i" ]; then
+    g++ "${FLAGS[@]}" -DLOCAL -DDEBUG -o "$FILE" "$FILE.cpp"
 
     if [ $? -eq 0 ]; then
         echo "== Running [Give Input] =="
